@@ -1,13 +1,13 @@
 CREATE TABLE applications (
-    application_id INT IDENTITY(1,1),
+    application_id INTEGER GENERATED ALWAYS AS IDENTITY,
     application_no VARCHAR(20) NOT NULL UNIQUE,
-    application_datetime DATETIME NOT NULL,
+    application_datetime TIMESTAMP NOT NULL,
     approved_flag BOOLEAN NOT NULL DEFAULT FALSE,
     applicant_name VARCHAR(12) NOT NULL,
     applicant_address VARCHAR(100) NOT NULL,
     application_details VARCHAR(200) NOT NULL,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL,
     CONSTRAINT applications_pk PRIMARY KEY (application_id)
 );
 
@@ -32,7 +32,7 @@ IS '申請者名';
 COMMENT ON COLUMN applications.applicant_address
 IS '申請者住所';
 
-COMMENT ON COLUMN applications.application_datails
+COMMENT ON COLUMN applications.application_details
 IS '申請内容';
 
 COMMENT ON COLUMN applications.created_at
