@@ -1,21 +1,17 @@
 CREATE TABLE applications (
     application_id INTEGER GENERATED ALWAYS AS IDENTITY,
-    application_no VARCHAR(20) NOT NULL UNIQUE,
     application_datetime TIMESTAMP NOT NULL,
     approved_flag BOOLEAN NOT NULL DEFAULT FALSE,
     applicant_name VARCHAR(12) NOT NULL,
     applicant_address VARCHAR(100) NOT NULL,
     application_details VARCHAR(200) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT applications_pk PRIMARY KEY (application_id)
 );
 
 COMMENT ON TABLE applications
 IS '申請テーブル';
-
-COMMENT ON COLUMN applications.application_id
-IS '申請ID';
 
 COMMENT ON COLUMN applications.application_no
 IS '申請番号';
