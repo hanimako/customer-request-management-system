@@ -13,8 +13,8 @@ CREATE TABLE applications (
 COMMENT ON TABLE applications
 IS '申請テーブル';
 
-COMMENT ON COLUMN applications.application_no
-IS '申請番号';
+COMMENT ON COLUMN applications.application_id
+IS '申請ID';
 
 COMMENT ON COLUMN applications.application_datetime
 IS '申請日時';
