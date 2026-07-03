@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:18.4
+    container_name: customer-request-postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: customer-request-db
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: password
+    volumes:
+      - customer-request-db_data:/var/lib/postgresql
+volumes:
+  customer-request-db_data:
