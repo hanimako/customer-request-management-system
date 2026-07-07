@@ -1,0 +1,32 @@
+<html lang="ja">
+    <head>
+        <title>申請画面</title>
+    </head>
+    <body>
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>申請日時</td>
+                        <td>申請済</td>
+                        <td>申請者</td>
+                        <td>住所</td>
+                        <td>内容</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="request : ${requests}">
+                        <td th:text="${request.applicationId}"></td>
+                        <td th:text="${request.applicationDatetime}"></td>
+                        <td th:text="${request.isApproved}"></td>
+                        <td th:text="${request.applicantName}"></td>
+                        <td th:text="${request.applicantAddress}"></td>
+                        <td th:text="${request.applicationDetails}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </main>
+    </body>
+</html>
