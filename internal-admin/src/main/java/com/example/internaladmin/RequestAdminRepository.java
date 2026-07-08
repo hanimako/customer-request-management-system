@@ -19,7 +19,7 @@ public class RequestAdminRepository {
     public List<Request> findAll() {
         String sql = """
                 SELECT *
-                FROM applications
+                FROM requests
                 """;
 
         return jdbcTemplate.query(sql, this::mapRowToRequest);
@@ -27,12 +27,12 @@ public class RequestAdminRepository {
 
     private Request mapRowToRequest(ResultSet rs, int rowNum) throws SQLException { 
         return new Request(
-            rs.getInt("application_id"),
-            rs.getTimestamp("application_datetime").toLocalDateTime(),
-            rs.getBoolean("approved_flag"),
-            rs.getString("applicant_name"),
-            rs.getString("applicant_address"),
-            rs.getString("application_details")
+            rs.getInt("id"),
+            rs.getTimestamp("request_datetime").toLocalDateTime(),
+            rs.getBoolean("approved"),
+            rs.getString("requester_name"),
+            rs.getString("requester_address"),
+            rs.getString("content")
         );
     }
 }
