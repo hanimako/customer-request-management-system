@@ -16,7 +16,7 @@ IS '申請テーブル';
 COMMENT ON COLUMN requests.id
 IS '申請ID';
 
-COMMENT ON COLUMN requests.application_datetime
+COMMENT ON COLUMN requests.request_datetime
 IS '申請日時';
 
 COMMENT ON COLUMN requests.approved
