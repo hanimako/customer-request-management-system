@@ -3,38 +3,38 @@ package com.example.internaladmin;
 import java.time.LocalDateTime;
 
 public class Request {
-    private int applicationId;
-    private LocalDateTime applicationDatetime;
+    private int id;
+    private LocalDateTime requestDatetime;
     private Boolean approved;
-    private String applicantName;
-    private String applicantAddress;
-    private String applicationDetails;
+    private String requesterName;
+    private String requesterAddress;
+    private String content;
 
-    public Request(int applicationId, LocalDateTime applicationDatetime, Boolean approved, String applicantName, String applicantAddress, String applicationDetails) {
-        this.applicationId = applicationId;
-        this.applicationDatetime = applicationDatetime;
+    public Request(int id, LocalDateTime requestDatetime, Boolean approved, String requesterName, String requesterAddress, String content) {
+        this.id = id;
+        this.requestDatetime = requestDatetime;
         this.approved = approved;
-        this.applicantName = applicantName;
-        this.applicantAddress = applicantAddress;
-        this.applicationDetails = applicationDetails;
+        this.requesterName = requesterName;
+        this.requesterAddress = requesterAddress;
+        this.content = content;
     }
 
-    public int getApplicationId() {
-        return applicationId;
+    public int getId() {
+        return id;
     }
-    public LocalDateTime getApplicationDatetime() {
-        return applicationDatetime;
+    public LocalDateTime getRequestDatetime() {
+        return requestDatetime;
     }
     public Boolean isApproved() {
         return approved;
     }
-    public String getApplicantName() {
-        return applicantName;
+    public String getRequesterName() {
+        return requesterName;
     }
-    public String getApplicantAddress() {
-        return applicantAddress;
+    public String getRequesterAddress() {
+        return requesterAddress;
     }
-    public String getApplicationDetails() {
-        return applicationDetails;
+    public String getContent() {
+        return content;
     }
 }
