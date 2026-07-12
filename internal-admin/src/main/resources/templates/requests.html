@@ -18,8 +18,8 @@
                 <tbody>
                     <tr th:each="request : ${requests}">
                         <td th:text="${request.id}"></td>
-                        <td th:text="${request.requestDatetime}"></td>
-                        <td th:text="${request.approved}"></td>
+                        <td th:text="${#temporals.format(request.requestDatetime, 'yyyy/MM/dd HH:mm:ss')}"></td>
+                        <td th:text="${request.approved} ? '済' : '未'"></td>
                         <td th:text="${request.requesterName}"></td>
                         <td th:text="${request.requesterAddress}"></td>
                         <td th:text="${request.content}"></td>
