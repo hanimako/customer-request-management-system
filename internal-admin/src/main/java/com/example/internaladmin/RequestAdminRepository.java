@@ -18,11 +18,28 @@ public class RequestAdminRepository {
 
     public List<Request> findAll() {
         String sql = """
-                SELECT *
+                SELECT
+                    id,
+                    request_datetime,
+                    approved,
+                    requester_name,
+                    requester_address,
+                    content
                 FROM requests
+                ORDER BY id
                 """;
 
         return jdbcTemplate.query(sql, this::mapRowToRequest);
+    }
+
+    public int approveRequest(int id) {
+        String sql = """
+                UPDATE requests
+                SET approved = true
+                WHERE id = ?
+                """;
+        
+        return jdbcTemplate.update(sql, id);
     }
 
     private Request mapRowToRequest(ResultSet rs, int rowNum) throws SQLException { 
