@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,12 +21,15 @@ public class RequestAdminController {
     
     @GetMapping
     public String getAllRequests(Model model) {
-
-        // List<Request> requests = new ArrayList<>();
-        // requests.add(new Request(1, LocalDateTime.now(), false, "John Doe", "123 Main St", "Request details 1"));
-        
+    
         List<Request> requests = requestAdminService.findAll();
         model.addAttribute("requests", requests);
         return "requests";
+    }
+
+    @PostMapping("/{id}/approve")
+    public String approveRequest(@PathVariable int id) {
+        requestAdminService.approveRequest(id);
+        return "redirect:/requests";
     }
 }

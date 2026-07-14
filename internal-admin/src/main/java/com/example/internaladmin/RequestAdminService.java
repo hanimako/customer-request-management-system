@@ -16,4 +16,8 @@ public class RequestAdminService {
     public List<Request> findAll() {
         return requestAdminRepository.findAll();
     }
+
+    public void approveRequest(int id) {
+        requestAdminRepository.approveRequest(id);
+    }
 }
