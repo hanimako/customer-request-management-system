@@ -7,6 +7,7 @@ export default function Home() {
         <h1>申請画面</h1>
       </div>
       <div>
+        {/* フォーム申請時にServer ActionのcreateRequestを実行する */}
         <form action={createRequest}>
           <div>
             <label htmlFor="requester_name">申請者名：</label>
@@ -29,12 +30,14 @@ export default function Home() {
   );
 }
 
-async function createRequest(formDate: FormData) {
+// 申請フォームの入力内容をrequestsテーブルに登録する。
+// プロトタイプのため、入力チェックと登録完了画面は未実装。
+async function createRequest(formData: FormData) {
   "use server";
 
-  const requesterName = formDate.get("requester_name");
-  const requesterAddress = formDate.get("requester_address");
-  const content = formDate.get("content");
+  const requesterName = formData.get("requester_name");
+  const requesterAddress = formData.get("requester_address");
+  const content = formData.get("content");
 
   const result = await pool.query(
     `
@@ -53,5 +56,4 @@ async function createRequest(formDate: FormData) {
     `,
     [requesterName, requesterAddress, content]
   );
-  console.log(result.rows);
 };
