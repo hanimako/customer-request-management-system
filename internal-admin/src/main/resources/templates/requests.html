@@ -24,6 +24,7 @@
                         <td th:text="${request.requesterAddress}"></td>
                         <td th:text="${request.content}"></td>
                         <td>
+                            <!--/* 未承認の場合、「承認」ボタンを表示 */-->
                             <form th:if="${!request.approved}"
                                   th:action="@{/requests/{id}/approve(id=${request.id})}"
                                   method="post">
